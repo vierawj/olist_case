@@ -1,0 +1,44 @@
+Material de apoio:
+https://docs.getdbt.com/docs/core/connect-data-platform/duckdb-setup
+https://duckdb.org/docs/installation/index?version=stable&environment=cli&platform=win&download_method=direct
+https://www.metabase.com/data_sources/duckdb
+https://github.com//AlexR2D2/metabase_duckdb_driver   #Driver .jar do metabase que precisa subir junto da imagem do duckdb no compose via volume. 
+
+DBT_Project: 
+Criar a pasta dbt_project, dois principais arquivos e subpastas: 
+[profiles.yml,  dbt_project.yml]
+        [analysis, dbt_packages , logs, macros , seeds,tests]
+
+comandos: 
+        cd dbt_project 
+        pip install dbt-core dbt-duckdb --upgrade 
+        pip install dbt-core==1.7.0
+        pip install dbt-duckdb==1.7.0
+        dbt deps (terminal)
+        dbt parse (terminal)
+
+
+Carga das tabelas para duckdb
+dbt seed sobe todas dbt seed -s arquivo_name
+
+Comandos: 
+dbt seed (seeds)
+dbt run (models)
+
+
+Gerar Documentacao e linhagem
+dbt docs generate -- gera documentação
+dbt dbt docs serve -- expoe o serviço
+        ctrl c derruba terminal e acaba o serviço de docs
+
+Docker:
+docker-compose.yml (arquivo)
+        Listar quais serviços que vou subir na imagem, no caso imagem pronta do metabase. 
+
+
+
+
+
+
+
+

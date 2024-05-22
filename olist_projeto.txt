@@ -1,0 +1,37 @@
+Ideia de ferramentas:
+- Dagster 
+- DBT 
+- Metabase 
+- DuckDB 
+- Docker 
+
+DuckDB
+- Banco de dados
+
+Dbt:
+- ingestão de dados ( capturar o arquivos CSV) 
+- Carregar tabelas ( subir no SQL)
+- Transformar os dados (tratar)
+- macros 
+
+Docker: 
+- Container dos servicos do metabase conectado com Duckdb
+- container do Dagster com dbt 
+
+Metabase:
+- Apontar diferenças nos dados, order ID (validar as tabelas)
+- Algumas analises metabase da informação financeira
+- Algumas analises de sellers
+    - SLA por regiao 
+    - Principais produtos vendido por regiao
+
+Dagster:
+- Criar rotina de transformação de dados diariamente, atraves do orquestrador e paniel de acompanhamento.
+    
+
+
+dbt e duck local, via comando cli 
+
+container do Dbt Seeds e run 
+
+criar container metabase (services)
