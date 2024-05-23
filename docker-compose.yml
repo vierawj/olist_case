@@ -1,0 +1,60 @@
+version: "3.7"
+
+services:
+  # This service runs the postgres DB used by dagster for run storage, schedule storage,
+  # and event log storage.
+
+  
+  #olist_metabase:
+    #image: metabase/metabase
+    #container_name: olist_metabase
+    #volumes:
+      #- ./duck_db/duckdb.metabase-driver.jar:/app/plugins/duckdb.metabase-driver.jar      
+    #ports:
+      #- 3001:3000  
+  
+  olist_metabase:
+    build:
+      context: .
+      dockerfile: ./Dockerfile_metabase
+    #volumes:
+      #- ./duck_db/olist_db.duckdb:/container/directory/olist_db.duckdb    #passando meu arquivo duck_db local para o container
+    ports:
+      - 3001:3000 
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: postgres
+      MB_DB_PORT: 5432
+      MB_DB_USER: postgres
+      MB_DB_PASS: root
+      MB_DB_HOST: postgres
+    depends_on:
+      - postgres
+    links:
+      - postgres
+
+ 
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: root
+    volumes:
+      - pgdata:/var/lib/postgresql/data 
+    ports:
+      - 5432:5432  
+ 
+volumes:
+  pgdata: 
+
+
+
+
+    
+    
+
+    
+
+  
+
+ 

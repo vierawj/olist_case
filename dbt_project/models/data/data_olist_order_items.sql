@@ -12,5 +12,6 @@ select
     , seller_id
     , shipping_limit_date
     , price
-    , freight_value    
-from {{ref('dataset_olist_order_items')}}
+    , freight_value
+    , (price +  freight_value) as total_value_pedido
+from {{ref('rfd_olist_order_items')}}
